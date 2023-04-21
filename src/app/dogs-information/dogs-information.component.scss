@@ -1,0 +1,52 @@
+
+.dogPage{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    &>div{
+        flex-grow: 1;
+        min-width: 50%;
+        height: 70%vh;
+
+        &:nth-child(2){
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin: 0 20px;
+        }
+
+        
+    }
+
+    .imageContainer {
+        &>div{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            button{
+                height: 36px;
+            }
+        }
+        
+    }
+
+
+    table {
+        width: 100%;
+    }
+    
+    .mat-column-breed{
+        width: 200px;
+    }
+    
+    
+    button[mat-raised-button]{
+        margin: 2px 5px;
+        padding: 1px 5px;
+    }
+
+}
+

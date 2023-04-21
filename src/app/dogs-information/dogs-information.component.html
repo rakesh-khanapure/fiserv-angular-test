@@ -1,0 +1,43 @@
+
+<div class="dogPage">
+  <div>
+    <h3>Breed Information</h3>
+    <table mat-table [dataSource]="dogsInformation" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="breed">
+        <th mat-header-cell *matHeaderCellDef> Breed </th>
+        <td mat-cell *matCellDef="let element"> {{element.breed}} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="regions">
+        <th mat-header-cell *matHeaderCellDef> Regions </th>
+        <td mat-cell *matCellDef="let element">
+          <button *ngFor="let region of element.regions" mat-raised-button (click)="showDogImage(region, element.breed)">{{region}}</button>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="matColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: matColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[10, 20]"
+                  showFirstLastButtons
+                  aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+
+  <div class="imageContainer" *ngIf="imageTitle">
+    <div>
+      <h3>{{imageTitle}}</h3>
+      <button mat-raised-button (click)="imageTitle=''">X</button>
+    </div>
+    
+    <img [src]="dogImage">
+  </div>
+
+</div>
